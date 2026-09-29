@@ -1,5 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Acara17Controller; 
+use App\Http\Controllers\Acara18Controller;
+use App\Http\Controllers\Acara19Controller;
+use App\Http\Controllers\Acara20Controller;
 
 // Rute untuk Halaman Utama / Dashboard POS
 Route::get('/', function () {
@@ -81,4 +85,14 @@ Route::prefix('admin')->group(function () {
 
 
 
-return view('login');
+
+Route::get('/test-query', [Acara17Controller::class, 'index']);
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/test-query', [Acara17Controller::class, 'index']);
+Route::get('/test-eloquent', [Acara18Controller::class, 'index']);
+Route::get('/test-crud', [Acara19Controller::class, 'index']);
+Route::get('/test-relasi', [Acara20Controller::class, 'index']);

@@ -9,5 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category_id', 'name', 'sku', 'price', 'stock'];
+    protected $guarded = [];
+
+    // Relasi: Setiap Product memiliki/milik satu Category
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
